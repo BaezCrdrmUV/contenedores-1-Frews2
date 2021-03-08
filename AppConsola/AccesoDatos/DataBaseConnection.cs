@@ -19,8 +19,8 @@ namespace AccesoDatos
         {
             try
             {
-                //connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
-                connectionString = "server=localhost;port=3307;user=usuario;password=PASS333;database=Personas";
+                connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+                //connectionString = "server=localhost;port=3307;user=usuario;password=PASS333;database=Personas";
                 connection = new MySqlConnection(connectionString);
                 
             }
