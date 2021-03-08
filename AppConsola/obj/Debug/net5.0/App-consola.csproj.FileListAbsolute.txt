@@ -1,0 +1,5 @@
+C:\Users\parke\Desktop\SPP\DesarrolloSistemasRed\contenedores-1-Frews2\AppConsola\obj\Debug\net5.0\App-consola.csprojAssemblyReference.cache
+C:\Users\parke\Desktop\SPP\DesarrolloSistemasRed\contenedores-1-Frews2\AppConsola\obj\Debug\net5.0\App-consola.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\parke\Desktop\SPP\DesarrolloSistemasRed\contenedores-1-Frews2\AppConsola\obj\Debug\net5.0\App-consola.AssemblyInfoInputs.cache
+C:\Users\parke\Desktop\SPP\DesarrolloSistemasRed\contenedores-1-Frews2\AppConsola\obj\Debug\net5.0\App-consola.AssemblyInfo.cs
+C:\Users\parke\Desktop\SPP\DesarrolloSistemasRed\contenedores-1-Frews2\AppConsola\obj\Debug\net5.0\App-consola.csproj.CoreCompileInputs.cache

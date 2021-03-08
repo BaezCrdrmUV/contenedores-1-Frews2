@@ -3,6 +3,7 @@ services:
     # Bases de datos
     mysql_bd_Personas:
         image: mysql/mysql-server:latest
+        container_name: bd_personas
         ports:
             - "3307:3306"
         restart: always
@@ -15,20 +16,23 @@ services:
             MYSQL_HOST: localhost
             MYSQL_DATABASE: "Personas"
             MYSQL_USER: "root"
-            # MYSQL_USER: "usuario"
-            # MYSQL_PASSWORD: "PASS333"
-        container_name: bd_personas
+            MYSQL_USER: "usuario"
+            MYSQL_PASSWORD: "PASS333"
+        
 
-#    simple_app:
-#        image: app_consola_personas
-#        depends_on: 
-#            - "mysql_inventario"
-#        build: 
-#            context: ./inventario/
-#            dockerfile: Dockerfile
-#        environment: 
-#            DB_CONNECTION_STRING: "server=localhost;port=3307;user=admin;password=admin;database=inventario"
-#        container_name: app_inventario
-
+#    app de consola
+    app-consola:
+        image: app-consola
+        container_name: contenedor-consola
+        build: 
+            context: ./AppConsola/
+            dockerfile: Dockerfile
+        stdin_open: true 
+        tty: true  
+        depends_on: 
+            - "mysql_bd_Personas"
+        environment: 
+            DB_CONNECTION_STRING: "server=bd_personas;user=usuario;password=PASS333;database=Personas"
+         
 volumes:
   bd_volumen_personas:
