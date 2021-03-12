@@ -5,10 +5,10 @@ services:
         image: mysql/mysql-server:latest
         container_name: bd_personas
         ports:
-            - "3307:3306"
+            - "3310:3306"
         restart: always
         volumes:
-            - bd_volumen_personas/var/lib/mysql
+            - bd_volumen_personas:/var/lib/mysql
             - ./BaseDatosDocker/CREATE_Personas_script.sql:/docker-entrypoint-initdb.d/CREATE_Personas_script.sql:ro
         command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_0900_ai_ci']
         environment: 
@@ -16,8 +16,6 @@ services:
             MYSQL_HOST: localhost
             MYSQL_DATABASE: "Personas"
             MYSQL_USER: "root"
-            MYSQL_USER: "usuario"
-            MYSQL_PASSWORD: "PASS333"
         
 
 #    app de consola
@@ -32,7 +30,7 @@ services:
         depends_on: 
             - "mysql_bd_Personas"
         environment: 
-            DB_CONNECTION_STRING: "server=bd_personas;user=usuario;password=PASS333;database=Personas"
+            DB_CONNECTION_STRING: "server=mysql_bd_Personas;user=usuario;password=PASS333;database=Personas"
          
 volumes:
   bd_volumen_personas:

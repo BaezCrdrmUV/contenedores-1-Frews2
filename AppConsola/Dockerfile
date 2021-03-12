@@ -1,4 +1,19 @@
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 as base
-COPY bin/Debug/net5.0 App/
-WORKDIR /App
-ENV DB_CONNECTION_STRING: "server=bd_personas;user=usuario;password=PASS333;database=Personas"
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-buster-slim AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
+WORKDIR /src
+COPY ["AppConsola.csproj", "./"]
+RUN dotnet restore "AppConsola.csproj"
+COPY . .
+WORKDIR "/src/"
+RUN dotnet build "AppConsola.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "AppConsola.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .

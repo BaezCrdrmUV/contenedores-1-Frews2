@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Threading.Tasks;
 using System.Configuration;
-
+using System;
 
 namespace AccesoDatos
 {
